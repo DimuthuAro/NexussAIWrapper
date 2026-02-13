@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nexuss"
+version = "2.0.0"
+description = "Nexuss Agent – Open CLAW Architecture: Heartbeat-Driven Autonomous LLM Agent"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0",
+    "transformers>=4.38",
+    "accelerate>=0.25",
+    "bitsandbytes>=0.41",
+    "ollama>=0.1",
+    "colorama>=0.4",
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+
+[project.scripts]
+nexuss-agent = "Nexuss:main"
+nexuss-ai = "Nexuss:main"
+nexuss-service = "nexuss_service:main"
+nexuss-chat = "nexuss_gui:main"
+
+[tool.setuptools]
+py-modules = [
+    "Nexuss",
+    "config",
+    "enums_and_dataclasses",
+    "Utils",
+    "skills_tools_framework",
+    "skill_registry",
+    "builtin_skills",
+    "memory_system",
+    "attention_mechanism",
+    "heartbeat_protocol",
+    "local_model_wrapper",
+    "nexuss_agent",
+    "server_management",
+    "nexuss_service",
+    "nexuss_gui",
+    "mindroot",
+]
